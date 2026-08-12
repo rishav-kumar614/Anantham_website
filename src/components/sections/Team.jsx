@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from '../animations/ScrollReveal';
+
+// Founder Images
 import meharSinghImg from '../../assets/images/founders/mehar-singh.webp';
 import sagarJanghuImg from '../../assets/images/founders/sagar-janghu.webp';
 import shubhamJanghuImg from '../../assets/images/founders/Shubham-janghu.jpeg';
@@ -9,23 +11,18 @@ import devenderSinghImg from '../../assets/images/founders/devender-singh.jpeg';
 import goldUserAvatar from '../../assets/images/founders/gold_user_avatar.png';
 import corporateHqImg from '../../assets/images/projects/corporate_hq.jpeg';
 
-// Page 7 Consultant ChatGPT Logos
+// Consultant Logos
 import sandeepKheraLogo from '../../assets/images/projects/sandeep_khera_logo.png';
 import maansiSaxenaLogo from '../../assets/images/projects/maansi_saxena_logo.png';
 import somnathBeheraLogo from '../../assets/images/projects/somnath_behera_logo.png';
 
 import { 
-    Award, 
-    GraduationCap, 
-    Briefcase, 
-    Scale, 
-    MapPin, 
     Linkedin, 
-    CheckCircle2, 
-    Sparkles, 
-    Quote,
-    Building2,
-    ShieldCheck
+    Building2, 
+    MapPin, 
+    Sparkles,
+    Check,
+    ArrowUpRight
 } from 'lucide-react';
 
 export default function Team() {
@@ -34,29 +31,29 @@ export default function Team() {
             name: "Mehar Singh",
             role: "Founder & Visionary",
             image: meharSinghImg,
-            experienceBadge: "35+ Years Mastery",
-            specialties: ["Civil Construction Pioneer", "Execution-First Leadership"],
+            highlight: "35+ Years Civil Construction Mastery",
+            bio: "35+ years in civil construction. Founded MR Construction in 1991. The group's execution-first philosophy traces back to him.",
             credentials: [
                 "B.A., MD University Rohtak (1987)",
                 "Founded MR Construction (1991)",
                 "Constructed 25+ Maharishi Vidya Mandir Schools"
             ],
-            bio: "35+ years in civil construction. Founded MR Construction in 1991. The group's execution-first philosophy traces back to him."
+            tags: ["Execution-First", "35+ Yrs Civil"]
         },
         {
             name: "Sagar Janghu",
             role: "Managing Partner",
             image: sagarJanghuImg,
             linkedin: "https://www.linkedin.com/in/sagar-janghu/",
-            experienceBadge: "Ex J.P. Morgan Real Estate IB",
-            specialties: ["B.Tech NSIT", "MBA ESADE", "CFA Charterholder"],
+            highlight: "Ex J.P. Morgan Real Estate IB",
+            bio: "Ex J.P. Morgan Real Estate IB. Brings financial discipline and strategic direction to Anantham.",
             credentials: [
                 "B.Tech, Netaji Subhash Institute of Technology (NSIT)",
                 "MBA, ESADE Business School (Top-ranked global school)",
                 "CFA Charterholder · Ex J.P. Morgan Real Estate IB",
                 "Joint Secretary, GHDA (Gurugram Home Developers Assoc.)"
             ],
-            bio: "Ex J.P. Morgan Real Estate IB. Brings financial discipline and strategic direction to Anantham."
+            tags: ["Ex J.P. Morgan IB", "CFA Charterholder", "MBA ESADE"]
         }
     ];
 
@@ -66,29 +63,30 @@ export default function Team() {
             role: "Legal Advisor & Counsel",
             image: shubhamJanghuImg,
             linkedin: "https://www.linkedin.com/in/shubham-janghu/",
-            experienceBadge: "LL.M. Cambridge (UK)",
-            specialties: ["Supreme Court Advocate", "Land Titling Specialist"],
+            highlight: "LL.M. Cambridge University (UK)",
+            bio: "Leads legal strategy, land titling, and compliance — ensuring airtight standing across all acquisitions.",
             credentials: [
                 "LL.M., Cambridge University (UK)",
                 "Dual-Qualified: England & Wales and India",
                 "B.B.A. LL.B., O.P. Jindal Global University",
                 "Advocate: Hon'ble Supreme Court & Delhi High Court"
             ],
-            bio: "Leads legal strategy, land titling, and compliance — ensuring airtight standing across all acquisitions."
+            tags: ["Supreme Court Advocate", "LL.M. Cambridge"]
         },
         {
             name: "Pratibha Malik",
             role: "Principal Designer & Architect",
             image: pratibhaMalikImg,
             linkedin: "https://www.linkedin.com/in/pratibha-malik-b036a953/",
-            experienceBadge: "Spatial Architect",
-            specialties: ["Architectural Design", "Space Planning"],
+            highlight: "Spatial Architect & Designer",
+            bio: "Drives aesthetic direction and spatial planning across Anantham's residential and plotted communities.",
             credentials: [
                 "Principal Architect & Interior Strategist",
                 "Luxury Residential & Commercial Specialist",
                 "Contextual Design Integration"
             ],
-            bio: "Drives aesthetic direction and spatial planning across Anantham's residential and plotted communities."
+            bioDetails: "Contextual Design Integration across Luxury Residential & Commercial Sectors.",
+            tags: ["Architectural Design", "Space Planning"]
         }
     ];
 
@@ -113,63 +111,60 @@ export default function Team() {
             company: "Interact Consultants Pvt. Ltd.",
             role: "Architecture & Landscape",
             logo: sandeepKheraLogo,
-            desc: "Architecture and landscape consultancy across residential and commercial masterplans."
+            desc: "Architecture & landscape masterplanning for residential & commercial developments."
         },
         {
             name: "Maansi Saxena",
             company: "landscape architect mesh design",
             role: "Architectural Studio",
             logo: maansiSaxenaLogo,
-            desc: "Architectural studio crafting contextual spaces where built and unbuilt coexist seamlessly."
+            desc: "Crafting contextual, timeless spaces where built and unbuilt coexist in harmony."
         },
         {
             name: "Somnath Behera",
             company: "Behera Associates",
             role: "MEPF Engineering",
             logo: somnathBeheraLogo,
-            desc: "30+ years of MEPF engineering. Code-compliant, sustainable MEP and fire safety systems."
+            desc: "30+ years of MEPF engineering. Code-compliant, sustainable MEP infrastructure."
         }
     ];
 
     return (
-        <section id="founders" className="relative bg-[#0D0E11] text-white py-24 md:py-36 overflow-hidden border-t border-white/10">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#C9A961]/5 rounded-full blur-[180px] pointer-events-none" />
-            <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#8A6E4B]/5 rounded-full blur-[140px] pointer-events-none" />
-            <div className="absolute top-20 right-10 w-[350px] h-[350px] bg-[#C9A961]/5 rounded-full blur-[120px] pointer-events-none" />
-
-            {/* Subtle Metallic Grid Pattern Overlay */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
-                backgroundImage: `radial-gradient(#C9A961 1px, transparent 1px)`,
-                backgroundSize: '36px 36px'
-            }} />
+        <section id="founders" className="relative bg-[#0A0B0D] text-white py-28 md:py-40 overflow-hidden">
+            {/* Ambient Lighting Gradients */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-[#C9A961]/10 via-[#C9A961]/5 to-transparent pointer-events-none blur-[120px]" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#8A6E4B]/10 rounded-full blur-[160px] pointer-events-none" />
 
             <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24">
-                {/* Main Header */}
+                
+                {/* Editorial Section Header */}
                 <ScrollReveal>
-                    <div className="text-center max-w-4xl mx-auto mb-20">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-full mb-6">
-                            <Sparkles size={14} className="text-[#C9A961]" />
-                            <span className="text-[#C9A961] text-[11px] uppercase tracking-[0.35em] font-bold">
+                    <div className="text-center max-w-4xl mx-auto mb-24 md:mb-32">
+                        <div className="inline-flex items-center gap-3 mb-6">
+                            <div className="w-8 h-[1px] bg-[#C9A961]" />
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold">
                                 Leadership &amp; Vision
                             </span>
+                            <div className="w-8 h-[1px] bg-[#C9A961]" />
                         </div>
 
-                        <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight mb-6 text-white">
-                            Two Leaders. <span className="text-[#C9A961] italic">One Philosophy.</span>
+                        <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] tracking-tight mb-8 text-white">
+                            Two Leaders. <span className="text-[#C9A961] italic font-serif">One Philosophy.</span>
                         </h2>
 
-                        <div className="relative max-w-2xl mx-auto bg-white/5 border border-[#C9A961]/20 p-4 md:p-5 rounded-xl backdrop-blur-sm shadow-xl">
-                            <Quote size={20} className="text-[#C9A961]/40 absolute top-3 left-4" />
-                            <p className="text-white/80 text-sm md:text-base font-light italic leading-relaxed pl-6">
-                                "Vision lays the foundation. Execution builds the legacy." Guided by decades of engineering expertise, legal clarity, and financial discipline.
-                            </p>
-                        </div>
+                        <p className="text-white/70 text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto leading-relaxed italic border-l-2 border-[#C9A961] pl-6 text-left sm:text-center sm:border-l-0 sm:pl-0">
+                            "Vision lays the foundation. Execution builds the legacy." Guided by decades of engineering expertise, legal clarity, and financial discipline.
+                        </p>
                     </div>
                 </ScrollReveal>
 
-                {/* 1. FOUNDERS CARDS (Mehar Singh & Sagar Janghu) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto mb-28">
+                {/* ============================================================ */}
+                {/* 1. FOUNDERS EDITORIAL MAGAZINE SHOWCASE (NO CARDS!)          */}
+                {/* ============================================================ */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start mb-36 relative">
+                    {/* Vertical Hairline Divider between Founders on Desktop */}
+                    <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#C9A961]/25 to-transparent -translate-x-1/2" />
+
                     {founders.map((member, index) => (
                         <motion.div
                             key={index}
@@ -177,67 +172,70 @@ export default function Team() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: index * 0.2 }}
-                            className="group relative bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-[#C9A961]/60 rounded-2xl p-6 sm:p-8 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(201,169,97,0.12)] flex flex-col justify-between"
+                            className="group flex flex-col md:flex-row lg:flex-col xl:flex-row items-start gap-8 lg:gap-10"
                         >
-                            {/* Top Badge */}
-                            <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                                <span className="px-3 py-1 bg-[#C9A961]/15 border border-[#C9A961]/40 text-[#C9A961] text-[10px] uppercase tracking-widest font-bold rounded-full">
-                                    {member.experienceBadge}
-                                </span>
+                            {/* Portrait Artwork Frame */}
+                            <div className="relative w-full md:w-56 lg:w-full xl:w-64 aspect-[3/4] flex-shrink-0 overflow-hidden rounded-lg shadow-2xl border border-white/10 group-hover:border-[#C9A961] transition-all duration-700">
+                                <img
+                                    src={member.image}
+                                    alt={member.name}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                
+                                {/* Bottom Floating Highlight Badge */}
+                                <div className="absolute bottom-4 left-4 right-4">
+                                    <span className="inline-block px-3 py-1 bg-black/80 backdrop-blur-md border border-[#C9A961]/40 text-[#C9A961] text-[10px] uppercase tracking-widest font-bold">
+                                        {member.highlight}
+                                    </span>
+                                </div>
                             </div>
 
-                            <div>
-                                {/* Profile Header */}
-                                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6 pt-2">
-                                    {/* Portrait Frame */}
-                                    <div className="relative w-28 h-32 sm:w-32 sm:h-36 rounded-xl overflow-hidden border-2 border-[#C9A961]/30 group-hover:border-[#C9A961] transition-all duration-500 shadow-xl flex-shrink-0">
-                                        <img
-                                            src={member.image}
-                                            alt={member.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                            {/* Bio & Details Column */}
+                            <div className="flex-1 space-y-4">
+                                <div>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <h3 className="font-serif text-3xl sm:text-4xl text-white font-light group-hover:text-[#C9A961] transition-colors duration-300">
+                                            {member.name}
+                                        </h3>
+                                        {member.linkedin && (
+                                            <a
+                                                href={member.linkedin}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="p-1.5 rounded-full text-[#C9A961] hover:text-white transition-colors"
+                                            >
+                                                <Linkedin size={18} />
+                                            </a>
+                                        )}
                                     </div>
-
-                                    {/* Title & Specialties */}
-                                    <div className="text-center sm:text-left flex-1">
-                                        <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
-                                            <h3 className="font-serif text-2xl sm:text-3xl text-white font-light group-hover:text-[#C9A961] transition-colors">
-                                                {member.name}
-                                            </h3>
-                                            {member.linkedin && (
-                                                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/5 rounded-full text-[#C9A961] hover:bg-[#C9A961] hover:text-black transition-all">
-                                                    <Linkedin size={14} />
-                                                </a>
-                                            )}
-                                        </div>
-
-                                        <span className="text-[#C9A961] text-xs uppercase tracking-[0.25em] font-bold block mb-3">
-                                            {member.role}
-                                        </span>
-
-                                        <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                                            {member.specialties.map((spec, i) => (
-                                                <span key={i} className="px-2.5 py-1 bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase tracking-wider font-semibold rounded">
-                                                    {spec}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
+                                    <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block">
+                                        {member.role}
+                                    </span>
                                 </div>
 
-                                {/* Bio Paragraph */}
-                                <p className="text-white/70 text-xs sm:text-sm leading-relaxed font-light mb-6 bg-black/30 p-3.5 rounded-lg border border-white/5">
+                                <div className="w-12 h-[1px] bg-[#C9A961]/40" />
+
+                                <p className="text-white/70 text-sm leading-relaxed font-light">
                                     {member.bio}
                                 </p>
 
-                                {/* Credentials Bullet List */}
-                                <div className="space-y-2 pt-2">
+                                {/* Credentials List */}
+                                <div className="space-y-2.5 pt-2">
                                     {member.credentials.map((cred, cIdx) => (
-                                        <div key={cIdx} className="flex items-start gap-2.5 text-xs text-white/80 font-light">
-                                            <CheckCircle2 size={14} className="text-[#C9A961] flex-shrink-0 mt-0.5" />
-                                            <span>{cred}</span>
+                                        <div key={cIdx} className="flex items-start gap-3 text-xs text-white/80 font-light">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A961] mt-1.5 flex-shrink-0" />
+                                            <span className="leading-snug">{cred}</span>
                                         </div>
+                                    ))}
+                                </div>
+
+                                {/* Minimal Tag Badges */}
+                                <div className="flex flex-wrap gap-2 pt-2">
+                                    {member.tags.map((tag, tIdx) => (
+                                        <span key={tIdx} className="px-2.5 py-1 bg-white/5 border border-white/10 text-white/60 text-[10px] uppercase tracking-wider font-semibold">
+                                            {tag}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
@@ -245,83 +243,90 @@ export default function Team() {
                     ))}
                 </div>
 
-                {/* 2. EXECUTIVE MANAGEMENT SECTION (Shubham Janghu & Pratibha Malik) */}
-                <div className="mb-28">
+                {/* ============================================================ */}
+                {/* 2. EXECUTIVE MANAGEMENT SECTION (EDITORIAL OPEN GRID)         */}
+                {/* ============================================================ */}
+                <div className="mb-36 pt-12 border-t border-white/10">
                     <ScrollReveal>
-                        <div className="text-center max-w-3xl mx-auto mb-14">
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-bold block mb-2">
+                        <div className="mb-20 text-center sm:text-left">
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
                                 Executive Leadership &amp; Design
                             </span>
-                            <h3 className="font-serif text-3xl md:text-4xl text-white font-light">
+                            <h3 className="font-serif text-3xl sm:text-4xl text-white font-light">
                                 Key Management Team
                             </h3>
-                            <div className="w-16 h-[1px] bg-[#C9A961]/40 mx-auto mt-4" />
                         </div>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
                         {keyManagement.map((member, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: index * 0.15 }}
-                                className="group relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 hover:border-[#C9A961]/60 rounded-2xl p-6 sm:p-8 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(201,169,97,0.1)] flex flex-col justify-between"
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
+                                className="group flex flex-col md:flex-row lg:flex-col xl:flex-row items-start gap-8 lg:gap-10"
                             >
-                                <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                                    <span className="px-3 py-1 bg-[#C9A961]/15 border border-[#C9A961]/40 text-[#C9A961] text-[10px] uppercase tracking-widest font-bold rounded-full">
-                                        {member.experienceBadge}
-                                    </span>
+                                {/* Portrait Artwork Frame */}
+                                <div className="relative w-full md:w-56 lg:w-full xl:w-64 aspect-[3/4] flex-shrink-0 overflow-hidden rounded-lg shadow-2xl border border-white/10 group-hover:border-[#C9A961] transition-all duration-700">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    
+                                    <div className="absolute bottom-4 left-4 right-4">
+                                        <span className="inline-block px-3 py-1 bg-black/80 backdrop-blur-md border border-[#C9A961]/40 text-[#C9A961] text-[10px] uppercase tracking-widest font-bold">
+                                            {member.highlight}
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6 pt-2">
-                                        <div className="relative w-28 h-32 sm:w-32 sm:h-36 rounded-xl overflow-hidden border-2 border-[#C9A961]/30 group-hover:border-[#C9A961] transition-all duration-500 shadow-xl flex-shrink-0">
-                                            <img
-                                                src={member.image}
-                                                alt={member.name}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                                {/* Bio & Details Column */}
+                                <div className="flex-1 space-y-4">
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <h3 className="font-serif text-3xl sm:text-4xl text-white font-light group-hover:text-[#C9A961] transition-colors duration-300">
+                                                {member.name}
+                                            </h3>
+                                            {member.linkedin && (
+                                                <a
+                                                    href={member.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-1.5 rounded-full text-[#C9A961] hover:text-white transition-colors"
+                                                >
+                                                    <Linkedin size={18} />
+                                                </a>
+                                            )}
                                         </div>
-
-                                        <div className="text-center sm:text-left flex-1">
-                                            <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
-                                                <h3 className="font-serif text-2xl sm:text-3xl text-white font-light group-hover:text-[#C9A961] transition-colors">
-                                                    {member.name}
-                                                </h3>
-                                                {member.linkedin && (
-                                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/5 rounded-full text-[#C9A961] hover:bg-[#C9A961] hover:text-black transition-all">
-                                                        <Linkedin size={14} />
-                                                    </a>
-                                                )}
-                                            </div>
-
-                                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.25em] font-bold block mb-3">
-                                                {member.role}
-                                            </span>
-
-                                            <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                                                {member.specialties.map((spec, i) => (
-                                                    <span key={i} className="px-2.5 py-1 bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase tracking-wider font-semibold rounded">
-                                                        {spec}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
+                                        <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block">
+                                            {member.role}
+                                        </span>
                                     </div>
 
-                                    <p className="text-white/70 text-xs sm:text-sm leading-relaxed font-light mb-6 bg-black/30 p-3.5 rounded-lg border border-white/5">
+                                    <div className="w-12 h-[1px] bg-[#C9A961]/40" />
+
+                                    <p className="text-white/70 text-sm leading-relaxed font-light">
                                         {member.bio}
                                     </p>
 
-                                    <div className="space-y-2 pt-2">
+                                    <div className="space-y-2.5 pt-2">
                                         {member.credentials.map((cred, cIdx) => (
-                                            <div key={cIdx} className="flex items-start gap-2.5 text-xs text-white/80 font-light">
-                                                <CheckCircle2 size={14} className="text-[#C9A961] flex-shrink-0 mt-0.5" />
-                                                <span>{cred}</span>
+                                            <div key={cIdx} className="flex items-start gap-3 text-xs text-white/80 font-light">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A961] mt-1.5 flex-shrink-0" />
+                                                <span className="leading-snug">{cred}</span>
                                             </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2 pt-2">
+                                        {member.tags.map((tag, tIdx) => (
+                                            <span key={tIdx} className="px-2.5 py-1 bg-white/5 border border-white/10 text-white/60 text-[10px] uppercase tracking-wider font-semibold">
+                                                {tag}
+                                            </span>
                                         ))}
                                     </div>
                                 </div>
@@ -330,144 +335,122 @@ export default function Team() {
                     </div>
                 </div>
 
-                {/* 3. BUSINESS PARTNERS */}
-                <div className="mb-24">
-                    <ScrollReveal>
-                        <div className="text-center max-w-2xl mx-auto mb-10">
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-bold block mb-2">
+                {/* ============================================================ */}
+                {/* 3. BUSINESS PARTNERS & CONSULTANTS RIBBON                     */}
+                {/* ============================================================ */}
+                <div className="grid lg:grid-cols-12 gap-12 py-16 border-t border-white/10 items-start mb-24">
+                    {/* Business Partners Column */}
+                    <div className="lg:col-span-5 space-y-8">
+                        <div>
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
                                 Trusted Allies
                             </span>
-                            <h3 className="font-serif text-2xl md:text-3xl text-white font-light">
+                            <h3 className="font-serif text-2xl text-white font-light">
                                 Business Partners
                             </h3>
                         </div>
-                    </ScrollReveal>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {businessPartners.map((partner, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                                className="bg-white/5 border border-white/10 hover:border-[#C9A961]/50 p-6 rounded-xl transition-all duration-300 group backdrop-blur-sm"
-                            >
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#C9A961]/30 group-hover:border-[#C9A961] transition-colors flex-shrink-0">
-                                        <img
-                                            src={partner.image}
-                                            alt={partner.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
+                        <div className="space-y-6">
+                            {businessPartners.map((partner, idx) => (
+                                <div key={idx} className="flex items-start gap-4 group">
+                                    <div className="w-14 h-14 rounded-full overflow-hidden border border-[#C9A961]/30 group-hover:border-[#C9A961] transition-colors flex-shrink-0">
+                                        <img src={partner.image} alt={partner.name} className="w-full h-full object-cover" />
                                     </div>
                                     <div>
-                                        <h4 className="font-serif text-xl text-white group-hover:text-[#C9A961] transition-colors">{partner.name}</h4>
-                                        <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.25em] font-bold block">{partner.role}</span>
+                                        <h4 className="font-serif text-lg text-white group-hover:text-[#C9A961] transition-colors">{partner.name}</h4>
+                                        <span className="text-[#C9A961] text-[10px] uppercase tracking-wider font-bold block mb-1">{partner.role}</span>
+                                        <p className="text-white/60 text-xs font-light leading-relaxed">{partner.desc}</p>
                                     </div>
                                 </div>
-                                <p className="text-white/60 text-xs leading-relaxed font-light">{partner.desc}</p>
-                            </motion.div>
-                        ))}
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Key Consultants Column */}
+                    <div className="lg:col-span-7 space-y-8 lg:border-l lg:border-white/10 lg:pl-12">
+                        <div>
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
+                                Project Execution Partners
+                            </span>
+                            <h3 className="font-serif text-2xl text-white font-light">
+                                Key Consultants
+                            </h3>
+                        </div>
+
+                        <div className="space-y-6">
+                            {consultants.map((consultant, idx) => (
+                                <div key={idx} className="flex items-start gap-4 group">
+                                    {consultant.logo ? (
+                                        <div className="w-14 h-14 rounded-full overflow-hidden border border-[#C9A961]/30 group-hover:border-[#C9A961] transition-colors flex-shrink-0 bg-white/5 p-1">
+                                            <img src={consultant.logo} alt={consultant.name} className="w-full h-full object-contain" />
+                                        </div>
+                                    ) : (
+                                        <div className="w-14 h-14 rounded-full bg-[#C9A961]/10 flex items-center justify-center text-[#C9A961] font-serif text-base font-bold flex-shrink-0">
+                                            {consultant.name.charAt(0)}
+                                        </div>
+                                    )}
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <h4 className="font-serif text-lg text-white group-hover:text-[#C9A961] transition-colors">{consultant.name}</h4>
+                                            <span className="text-white/40 text-xs font-light">• {consultant.company}</span>
+                                        </div>
+                                        <span className="text-[#C9A961] text-[10px] uppercase tracking-wider font-bold block mb-1">{consultant.role}</span>
+                                        <p className="text-white/60 text-xs font-light leading-relaxed">{consultant.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* 4. CORPORATE HQ CALLOUT */}
-                <div className="bg-gradient-to-r from-white/[0.08] via-white/[0.03] to-white/[0.08] border border-white/15 rounded-2xl p-8 md:p-12 mb-24 relative overflow-hidden group shadow-2xl">
-                    <div className="grid lg:grid-cols-12 gap-8 items-center">
-                        <div className="lg:col-span-7">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-full mb-3">
-                                <Building2 size={14} className="text-[#C9A961]" />
-                                <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.25em] font-bold">
+                {/* ============================================================ */}
+                {/* 4. CORPORATE HQ EDITORIAL HERO STRIP (NO CARDS!)             */}
+                {/* ============================================================ */}
+                <div className="pt-16 border-t border-white/10">
+                    <div className="grid lg:grid-cols-12 gap-10 items-center">
+                        <div className="lg:col-span-6 space-y-4">
+                            <div className="inline-flex items-center gap-2 text-[#C9A961]">
+                                <Building2 size={16} />
+                                <span className="text-xs uppercase tracking-[0.3em] font-semibold">
                                     Corporate Headquarters
                                 </span>
                             </div>
 
-                            <h3 className="font-serif text-3xl md:text-4xl text-white font-light mb-3">
-                                Golf Course Road, Gurugram
+                            <h3 className="font-serif text-3xl sm:text-4xl text-white font-light leading-tight">
+                                Main Golf Course Road, Gurugram
                             </h3>
 
-                            <p className="text-white/70 text-sm font-light leading-relaxed mb-6">
+                            <p className="text-white/70 text-sm font-light leading-relaxed">
                                 Plot No. 585, Main Golf Course Road, Sector 43, Gurugram, Haryana — The operational nerve center for Anantham Projects, SYS Developers LLP, and NB Constructions.
                             </p>
 
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-[#C9A961]/40 text-[#C9A961] text-xs uppercase tracking-widest font-bold rounded-md">
-                                <MapPin size={14} />
-                                <span>Established Since 2011 · Main Golf Course Road Axis</span>
+                            <div className="pt-2">
+                                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#C9A961]/10 border border-[#C9A961]/30 text-[#C9A961] text-xs uppercase tracking-wider font-semibold">
+                                    <MapPin size={14} />
+                                    Since 2011 · Main Golf Course Road Axis
+                                </span>
                             </div>
                         </div>
 
-                        <div className="lg:col-span-5">
-                            <div className="relative aspect-[16/10] overflow-hidden border border-[#C9A961]/40 rounded-xl group-hover:border-[#C9A961] transition-all shadow-xl">
+                        <div className="lg:col-span-6">
+                            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/10 group shadow-2xl">
                                 <img
                                     src={corporateHqImg}
                                     alt="Corporate HQ Main Golf Course Road Gurugram"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                                     onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                                <div className="absolute bottom-3 left-3 px-3 py-1 bg-black/80 text-[10px] text-[#C9A961] font-bold uppercase tracking-wider rounded">
-                                    Official Headquarters Building
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="text-xs text-white/80 font-light tracking-wide">
+                                        Anantham Corporate Headquarters · Gurugram
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* 5. KEY CONSULTANTS GRID */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-md">
-                    <ScrollReveal>
-                        <div className="text-center mb-10">
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-bold block mb-2">
-                                Project Execution Partners
-                            </span>
-                            <h3 className="font-serif text-3xl md:text-4xl text-white font-light">
-                                Key Consultants
-                            </h3>
-                        </div>
-                    </ScrollReveal>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {consultants.map((consultant, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: idx * 0.12 }}
-                                className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-[#C9A961]/50 hover:bg-white/[0.08] transition-all duration-300 group"
-                            >
-                                <div>
-                                    <div className="flex items-center gap-4 mb-4">
-                                        {consultant.logo ? (
-                                            <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#C9A961]/30 group-hover:border-[#C9A961] transition-colors flex-shrink-0">
-                                                <img src={consultant.logo} alt={consultant.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                            </div>
-                                        ) : (
-                                            <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 flex items-center justify-center text-[#C9A961] font-serif text-lg font-bold flex-shrink-0">
-                                                {consultant.name.charAt(0)}
-                                            </div>
-                                        )}
-                                        <div>
-                                            <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.2em] font-bold block">
-                                                {consultant.role}
-                                            </span>
-                                            <h4 className="font-serif text-xl text-white group-hover:text-[#C9A961] transition-colors">
-                                                {consultant.name}
-                                            </h4>
-                                            <span className="block text-xs font-semibold text-white/60">
-                                                {consultant.company}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <p className="text-white/60 text-xs leading-relaxed font-light">
-                                        {consultant.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </section>
     );
