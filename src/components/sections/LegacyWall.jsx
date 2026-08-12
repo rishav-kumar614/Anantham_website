@@ -283,7 +283,7 @@ export default function LegacyWall() {
                 ))}
             </div>
 
-            <style jsx>{`
+            <style>{`
                 .hide-scrollbar::-webkit-scrollbar {
                     display: none;
                 }
@@ -292,6 +292,7 @@ export default function LegacyWall() {
                     scrollbar-width: none;
                 }
             `}</style>
+
         </section>
     );
 }

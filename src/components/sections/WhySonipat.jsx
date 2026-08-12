@@ -13,8 +13,11 @@ import {
     Check,
     Globe2,
     Building2,
-    ShieldCheck
+    ShieldCheck,
+    Users,
+    Navigation
 } from 'lucide-react';
+
 
 export default function WhySonipat() {
     const macroStats = [
