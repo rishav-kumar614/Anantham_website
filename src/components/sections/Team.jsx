@@ -348,39 +348,33 @@ export default function Team() {
                         </div>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-2xl">
+                    <div className="flex flex-wrap gap-10">
                         {businessPartners.map((partner, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 24 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.7, delay: idx * 0.18 }}
-                                className="group relative overflow-hidden aspect-[3/4] rounded-lg shadow-2xl border border-white/10 hover:border-[#C9A961]/60 transition-all duration-700"
+                                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                                className="group flex flex-col items-center gap-3 text-center"
                             >
-                                <img
-                                    src={partner.image}
-                                    alt={partner.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-                                />
-                                {/* Gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-                                {/* Name & Role floating at bottom */}
-                                <div className="absolute bottom-0 left-0 right-0 p-5">
-                                    <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.3em] font-bold block mb-1">
-                                        {partner.role}
-                                    </span>
-                                    <h4 className="font-serif text-2xl text-white font-light leading-tight">
-                                        {partner.name}
-                                    </h4>
-                                    <p className="text-white/60 text-xs font-light mt-2 leading-snug max-h-0 overflow-hidden group-hover:max-h-16 transition-all duration-500">
-                                        {partner.desc}
-                                    </p>
+                                {/* Circular Photo */}
+                                <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-[#C9A961] transition-all duration-500 shadow-xl flex-shrink-0">
+                                    <img
+                                        src={partner.image}
+                                        alt={partner.name}
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                                </div>
+                                <div>
+                                    <h4 className="font-serif text-base text-white group-hover:text-[#C9A961] transition-colors font-light">{partner.name}</h4>
+                                    <span className="text-[#C9A961] text-[10px] uppercase tracking-widest font-bold">{partner.role}</span>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
+
                 </div>
 
                 {/* ============================================================ */}
