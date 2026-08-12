@@ -453,52 +453,55 @@ export default function Team() {
                 </div>
 
                 {/* ============================================================ */}
-                {/* 4. CORPORATE HQ EDITORIAL HERO STRIP (NO CARDS!)             */}
+                {/* 4. CORPORATE HQ — FULL BLEED CINEMATIC BANNER                */}
                 {/* ============================================================ */}
-                <div className="pt-16 border-t border-white/10">
-                    <div className="grid lg:grid-cols-12 gap-10 items-center">
-                        <div className="lg:col-span-6 space-y-4">
-                            <div className="inline-flex items-center gap-2 text-[#C9A961]">
-                                <Building2 size={16} />
-                                <span className="text-xs uppercase tracking-[0.3em] font-semibold">
-                                    Corporate Headquarters
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
+                    className="pt-16 border-t border-white/10"
+                >
+                    {/* Full-bleed image container, no boxes/borders */}
+                    <div className="relative w-full aspect-[21/7] overflow-hidden group">
+                        <img
+                            src={corporateHqImg}
+                            alt="Corporate HQ Main Golf Course Road Gurugram"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
+                            onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+                        />
+
+                        {/* Directional gradient — dark on left so text is readable */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/10 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                        {/* Text overlay — floats over the image, left-aligned */}
+                        <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-2xl">
+                            <div className="inline-flex items-center gap-2 text-[#C9A961] mb-4">
+                                <Building2 size={14} />
+                                <span className="text-[10px] uppercase tracking-[0.35em] font-semibold">
+                                    Corporate Headquarters · Est. 2011
                                 </span>
                             </div>
 
-                            <h3 className="font-serif text-3xl sm:text-4xl text-white font-light leading-tight">
-                                Main Golf Course Road, Gurugram
+                            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-light leading-tight mb-4">
+                                Main Golf Course<br />Road, Gurugram
                             </h3>
 
-                            <p className="text-white/70 text-sm font-light leading-relaxed">
-                                Plot No. 585, Main Golf Course Road, Sector 43, Gurugram, Haryana — The operational nerve center for Anantham Projects, SYS Developers LLP, and NB Constructions.
+                            <p className="text-white/70 text-xs sm:text-sm font-light leading-relaxed max-w-sm">
+                                Plot No. 585, Sector 43, Gurugram — Operational nerve center for Anantham Projects, SYS Developers LLP &amp; NB Constructions.
                             </p>
 
-                            <div className="pt-2">
-                                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#C9A961]/10 border border-[#C9A961]/30 text-[#C9A961] text-xs uppercase tracking-wider font-semibold">
-                                    <MapPin size={14} />
-                                    Since 2011 · Main Golf Course Road Axis
+                            <div className="mt-5 flex items-center gap-2">
+                                <div className="w-6 h-[1px] bg-[#C9A961]" />
+                                <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.3em] font-semibold">
+                                    Main Golf Course Road Axis
                                 </span>
-                            </div>
-                        </div>
-
-                        <div className="lg:col-span-6">
-                            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/10 group shadow-2xl">
-                                <img
-                                    src={corporateHqImg}
-                                    alt="Corporate HQ Main Golf Course Road Gurugram"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                                    onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                                <div className="absolute bottom-4 left-4">
-                                    <span className="text-xs text-white/80 font-light tracking-wide">
-                                        Anantham Corporate Headquarters · Gurugram
-                                    </span>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
+
 
             </div>
         </section>
