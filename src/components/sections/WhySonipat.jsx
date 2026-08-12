@@ -18,11 +18,12 @@ import {
 
 export default function WhySonipat() {
     const macroStats = [
-        { label: "Population", value: "15 Lakh+", subtext: "Fast-growing urban market" },
-        { label: "National Highways", value: "6 Highways", subtext: "Unmatched NCR connectivity" },
-        { label: "Major Universities", value: "5+ Institutions", subtext: "Education & innovation hub" },
-        { label: "Economic Engines", value: "3 Pillars", subtext: "Industry, Education, Agriculture" }
+        { label: "Population", value: "15 Lakh+", subtext: "Fast-growing urban market", icon: Users },
+        { label: "National Highways", value: "6", subtext: "Unmatched NCR connectivity", icon: Navigation },
+        { label: "Major Universities", value: "5+", subtext: "Education & innovation hub", icon: GraduationCap },
+        { label: "Economic Engines", value: "3", subtext: "Industry, Education, Agriculture", icon: Factory }
     ];
+
 
     const economicEngines = [
         {
@@ -146,8 +147,8 @@ export default function WhySonipat() {
                     </div>
                 </div>
 
-                {/* Macro Stats Strip — Open Luxury Accent Metrics */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 mb-24">
+                {/* Macro Stats Strip — Icon-Accented Luxury Badges */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-24">
                     {macroStats.map((stat, idx) => (
                         <motion.div
                             key={idx}
@@ -155,20 +156,27 @@ export default function WhySonipat() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="group relative pt-6 pb-4 px-2 border-t-2 border-[#C9A961]/30 hover:border-[#C9A961] transition-colors duration-500 text-center md:text-left"
+                            className="group relative flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#C9A961]/50 hover:bg-[#C9A961]/[0.04] transition-all duration-500 shadow-xl"
                         >
-                            <span className="block font-serif text-3xl sm:text-4xl lg:text-5xl text-[#C9A961] font-light mb-2 group-hover:translate-x-1 transition-transform duration-500">
+                            <div className="w-10 h-10 rounded-full bg-[#C9A961]/10 border border-[#C9A961]/30 flex items-center justify-center text-[#C9A961] mb-3 group-hover:scale-110 group-hover:bg-[#C9A961] group-hover:text-black transition-all duration-500">
+                                <stat.icon size={18} />
+                            </div>
+
+                            <span className="font-serif text-3xl sm:text-4xl text-[#C9A961] font-light mb-1">
                                 {stat.value}
                             </span>
-                            <span className="block text-white text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] mb-1">
+
+                            <span className="text-white text-xs font-semibold uppercase tracking-[0.15em] mb-1">
                                 {stat.label}
                             </span>
-                            <span className="block text-white/50 text-xs font-light">
+
+                            <span className="text-white/50 text-[11px] font-light">
                                 {stat.subtext}
                             </span>
                         </motion.div>
                     ))}
                 </div>
+
 
 
                 {/* 3 Economic Engines Section — Box-Free Glass Columns */}
