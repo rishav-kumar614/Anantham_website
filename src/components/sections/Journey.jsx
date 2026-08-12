@@ -49,7 +49,7 @@ export default function Journey() {
                 <ScrollReveal>
                     <div className="text-center mb-20">
                         <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-4">
-                            Our Pillars &amp; Foundations
+                            Our Journey
                         </span>
                         <h2 className="font-serif text-white text-4xl sm:text-5xl lg:text-6xl font-light leading-tight">
                             Three Entities. <span className="text-[#C9A961] italic font-serif">One Standard.</span>
