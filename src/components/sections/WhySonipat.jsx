@@ -146,8 +146,8 @@ export default function WhySonipat() {
                     </div>
                 </div>
 
-                {/* Macro Stats Strip — Clean Borderless Horizontal Ribbon */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 rounded-2xl bg-white/[0.02] border border-white/5 mb-24 backdrop-blur-sm">
+                {/* Macro Stats Strip — Open Luxury Accent Metrics */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 mb-24">
                     {macroStats.map((stat, idx) => (
                         <motion.div
                             key={idx}
@@ -155,20 +155,21 @@ export default function WhySonipat() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="text-center p-4 border-r last:border-r-0 border-white/10"
+                            className="group relative pt-6 pb-4 px-2 border-t-2 border-[#C9A961]/30 hover:border-[#C9A961] transition-colors duration-500 text-center md:text-left"
                         >
-                            <span className="block font-serif text-3xl sm:text-4xl text-[#C9A961] font-light mb-1">
+                            <span className="block font-serif text-3xl sm:text-4xl lg:text-5xl text-[#C9A961] font-light mb-2 group-hover:translate-x-1 transition-transform duration-500">
                                 {stat.value}
                             </span>
-                            <span className="block text-white text-xs font-semibold uppercase tracking-wider mb-1">
+                            <span className="block text-white text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] mb-1">
                                 {stat.label}
                             </span>
-                            <span className="block text-white/40 text-[11px] font-light">
+                            <span className="block text-white/50 text-xs font-light">
                                 {stat.subtext}
                             </span>
                         </motion.div>
                     ))}
                 </div>
+
 
                 {/* 3 Economic Engines Section — Box-Free Glass Columns */}
                 <div className="mb-28">
