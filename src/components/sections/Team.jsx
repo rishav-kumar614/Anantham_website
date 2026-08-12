@@ -336,70 +336,125 @@ export default function Team() {
                 </div>
 
                 {/* ============================================================ */}
-                {/* 3. BUSINESS PARTNERS & CONSULTANTS RIBBON                     */}
+                {/* 3. BUSINESS PARTNERS — LARGE PORTRAIT GRID                   */}
                 {/* ============================================================ */}
-                <div className="grid lg:grid-cols-12 gap-12 py-16 border-t border-white/10 items-start mb-24">
-                    {/* Business Partners Column */}
-                    <div className="lg:col-span-5 space-y-8">
-                        <div>
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
+                <div className="pt-16 border-t border-white/10 mb-24">
+                    <ScrollReveal>
+                        <div className="flex items-baseline gap-4 mb-12">
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.35em] font-semibold">
                                 Trusted Allies
                             </span>
-                            <h3 className="font-serif text-2xl text-white font-light">
-                                Business Partners
-                            </h3>
+                            <div className="flex-1 h-[1px] bg-gradient-to-r from-[#C9A961]/30 to-transparent" />
                         </div>
+                    </ScrollReveal>
 
-                        <div className="space-y-6">
-                            {businessPartners.map((partner, idx) => (
-                                <div key={idx} className="flex items-start gap-4 group">
-                                    <div className="w-14 h-14 rounded-full overflow-hidden border border-[#C9A961]/30 group-hover:border-[#C9A961] transition-colors flex-shrink-0">
-                                        <img src={partner.image} alt={partner.name} className="w-full h-full object-cover" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-serif text-lg text-white group-hover:text-[#C9A961] transition-colors">{partner.name}</h4>
-                                        <span className="text-[#C9A961] text-[10px] uppercase tracking-wider font-bold block mb-1">{partner.role}</span>
-                                        <p className="text-white/60 text-xs font-light leading-relaxed">{partner.desc}</p>
-                                    </div>
+                    <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-2xl">
+                        {businessPartners.map((partner, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: idx * 0.18 }}
+                                className="group relative overflow-hidden aspect-[3/4] rounded-lg shadow-2xl border border-white/10 hover:border-[#C9A961]/60 transition-all duration-700"
+                            >
+                                <img
+                                    src={partner.image}
+                                    alt={partner.name}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                />
+                                {/* Gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+                                {/* Name & Role floating at bottom */}
+                                <div className="absolute bottom-0 left-0 right-0 p-5">
+                                    <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.3em] font-bold block mb-1">
+                                        {partner.role}
+                                    </span>
+                                    <h4 className="font-serif text-2xl text-white font-light leading-tight">
+                                        {partner.name}
+                                    </h4>
+                                    <p className="text-white/60 text-xs font-light mt-2 leading-snug max-h-0 overflow-hidden group-hover:max-h-16 transition-all duration-500">
+                                        {partner.desc}
+                                    </p>
                                 </div>
-                            ))}
-                        </div>
+                            </motion.div>
+                        ))}
                     </div>
+                </div>
 
-                    {/* Key Consultants Column */}
-                    <div className="lg:col-span-7 space-y-8 lg:border-l lg:border-white/10 lg:pl-12">
-                        <div>
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
+                {/* ============================================================ */}
+                {/* 4. KEY CONSULTANTS — NUMBERED EDITORIAL TABLE                 */}
+                {/* ============================================================ */}
+                <div className="pt-16 border-t border-white/10 mb-24">
+                    <ScrollReveal>
+                        <div className="flex items-baseline gap-4 mb-12">
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.35em] font-semibold">
                                 Project Execution Partners
                             </span>
-                            <h3 className="font-serif text-2xl text-white font-light">
-                                Key Consultants
-                            </h3>
+                            <div className="flex-1 h-[1px] bg-gradient-to-r from-[#C9A961]/30 to-transparent" />
                         </div>
+                    </ScrollReveal>
 
-                        <div className="space-y-6">
-                            {consultants.map((consultant, idx) => (
-                                <div key={idx} className="flex items-start gap-4 group">
+                    <div className="space-y-0">
+                        {consultants.map((consultant, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                className="group grid grid-cols-12 items-center gap-6 py-6 border-b border-white/10 hover:border-[#C9A961]/30 transition-colors duration-300 cursor-default"
+                            >
+                                {/* Index Number */}
+                                <div className="col-span-1">
+                                    <span className="font-serif text-3xl text-[#C9A961]/25 group-hover:text-[#C9A961]/70 transition-colors duration-300 font-light">
+                                        {String(idx + 1).padStart(2, '0')}
+                                    </span>
+                                </div>
+
+                                {/* Logo */}
+                                <div className="col-span-2">
                                     {consultant.logo ? (
-                                        <div className="w-14 h-14 rounded-full overflow-hidden border border-[#C9A961]/30 group-hover:border-[#C9A961] transition-colors flex-shrink-0 bg-white/5 p-1">
-                                            <img src={consultant.logo} alt={consultant.name} className="w-full h-full object-contain" />
+                                        <div className="w-14 h-14 overflow-hidden bg-white/5 border border-white/10 group-hover:border-[#C9A961]/40 transition-colors rounded p-1.5 flex items-center justify-center">
+                                            <img
+                                                src={consultant.logo}
+                                                alt={consultant.name}
+                                                className="w-full h-full object-contain"
+                                            />
                                         </div>
                                     ) : (
-                                        <div className="w-14 h-14 rounded-full bg-[#C9A961]/10 flex items-center justify-center text-[#C9A961] font-serif text-base font-bold flex-shrink-0">
+                                        <div className="w-14 h-14 bg-[#C9A961]/10 border border-[#C9A961]/30 rounded flex items-center justify-center text-[#C9A961] font-serif text-lg font-bold">
                                             {consultant.name.charAt(0)}
                                         </div>
                                     )}
-                                    <div>
-                                        <div className="flex items-center gap-2">
-                                            <h4 className="font-serif text-lg text-white group-hover:text-[#C9A961] transition-colors">{consultant.name}</h4>
-                                            <span className="text-white/40 text-xs font-light">• {consultant.company}</span>
-                                        </div>
-                                        <span className="text-[#C9A961] text-[10px] uppercase tracking-wider font-bold block mb-1">{consultant.role}</span>
-                                        <p className="text-white/60 text-xs font-light leading-relaxed">{consultant.desc}</p>
-                                    </div>
                                 </div>
-                            ))}
-                        </div>
+
+                                {/* Name & Company */}
+                                <div className="col-span-4">
+                                    <h4 className="font-serif text-xl md:text-2xl text-white group-hover:text-[#C9A961] transition-colors duration-300 font-light">
+                                        {consultant.name}
+                                    </h4>
+                                    <span className="text-white/50 text-xs font-light">
+                                        {consultant.company}
+                                    </span>
+                                </div>
+
+                                {/* Role Badge */}
+                                <div className="col-span-3">
+                                    <span className="inline-block px-3 py-1 border border-[#C9A961]/30 group-hover:border-[#C9A961] text-[#C9A961] text-[10px] uppercase tracking-widest font-bold transition-colors duration-300">
+                                        {consultant.role}
+                                    </span>
+                                </div>
+
+                                {/* Description */}
+                                <div className="col-span-2">
+                                    <p className="text-white/50 text-xs font-light leading-relaxed">
+                                        {consultant.desc}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
 
