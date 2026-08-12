@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from '../animations/ScrollReveal';
-import { Building2, Landmark, CheckCircle2, Award, ArrowUpRight, Shield } from 'lucide-react';
+import { Building2, Landmark, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 // SYS Projects Images
 import oliveResidencyImg from '../../assets/images/projects/olive_residency.png';
@@ -12,13 +12,6 @@ import mukteshwarVillasImg from '../../assets/images/projects/mukteshwar_villas.
 import greenwoodCityImg from '../../assets/images/projects/d13_greenwood_city.png';
 import dwarkaExpCommImg from '../../assets/images/projects/dwarka_expressway_commercial.png';
 import mannatFarmImg from '../../assets/images/projects/mannat_farm.png';
-
-// Builder Floor Portfolio Images (Page 8)
-import builderFloor1 from '../../assets/images/projects/builder_floor_1.png';
-import builderFloor2 from '../../assets/images/projects/builder_floor_2.png';
-import builderFloor3 from '../../assets/images/projects/builder_floor_3.png';
-import builderFloor4 from '../../assets/images/projects/builder_floor_4.png';
-import builderFloor5 from '../../assets/images/projects/builder_floor_5.png';
 
 // NB Constructions Images
 import iitDelhiImg from '../../assets/images/projects/iit_delhi_sonipat.png';
@@ -33,14 +26,14 @@ import m3mSolitudeImg from '../../assets/images/projects/m3m_solitude.jpeg';
 import adaniSamsaraImg from '../../assets/images/projects/adani_samsara.jpeg';
 
 export default function LegacyDevelopments() {
-    const [activeTab, setActiveTab] = useState('sys'); // 'sys' or 'nb'
+    const [activeTab, setActiveTab] = useState('sys');
 
     const sysProjects = [
         {
             title: "Olive Residency",
             location: "Sector 57, Gurgaon",
             category: "Luxury Row Housing & Builder Floors",
-            desc: "Bespoke luxury row houses crafted with architectural precision and high-spec interiors.",
+            desc: "Bespoke luxury row houses crafted with architectural precision.",
             badge: "Completed",
             image: oliveResidencyImg
         },
@@ -48,7 +41,7 @@ export default function LegacyDevelopments() {
             title: "Krishna Farmland",
             location: "NCR Region",
             category: "Gated Farmhouse Community",
-            desc: "Exclusive gated sanctuary offering sprawling farmland estates surrounded by nature.",
+            desc: "Exclusive gated sanctuary offering sprawling farmland estates.",
             badge: "Gated Community",
             image: krishnaFarmlandImg
         },
@@ -104,49 +97,49 @@ export default function LegacyDevelopments() {
 
     const nbProjects = [
         {
-            title: "Central Research Facility Centre for IIT Delhi",
+            title: "IIT Delhi Sonipat Campus",
             location: "Sonipat, Haryana",
-            category: "Institutional Milestone",
-            desc: "Advanced research infrastructure facility engineered & constructed in-house for IIT Delhi.",
-            badge: "Executed for Others",
+            category: "Premier Educational Campus",
+            desc: "Constructed state-of-the-art academic blocks, research centers, and infrastructure.",
+            badge: "Institutional Landmark",
             image: iitDelhiImg
         },
         {
-            title: "Gurugram Global Heights School",
-            location: "Gurugram",
-            category: "Educational Campus",
-            desc: "Modern K-12 institutional school building with academic & sports infrastructure.",
-            badge: "Executed for Others",
-            image: globalHeightsImg
-        },
-        {
-            title: "IT Building, Gulf Adiba",
-            location: "Industrial Area, Gurugram",
-            category: "IT Park & Commercial Building",
-            desc: "High-spec IT workspace built for international corporate operations.",
+            title: "Gulf Adiba IT Building",
+            location: "Plot 272, Phase II, Udyog Vihar, Gurugram",
+            category: "Iconic IT/ITeS Commercial Tower",
+            desc: "Flagship commercial IT building featuring contemporary facade architecture.",
             badge: "Executed for Others",
             image: gulfAdibaImg
         },
         {
-            title: "DJ Lifestyle & Hospitality Pvt. Ltd.",
-            location: "Gurugram",
-            category: "Hospitality & Commercial Infrastructure",
-            desc: "Turnkey structural execution for premium lifestyle and hospitality enterprise.",
-            badge: "Executed for Others",
-            image: djLifestyleImg
-        },
-        {
-            title: "MMTC-PAMP India Private Limited",
-            location: "Haryana",
-            category: "Precious Metals Refinery",
-            desc: "High-security industrial manufacturing facility for India's premier gold refinery.",
+            title: "MMTC-PAMP Gold Refinery",
+            location: "Rai Industrial Area, Sonipat",
+            category: "Industrial Refining Facility",
+            desc: "High-security industrial refining campus for India's premier precious metals joint venture.",
             badge: "Executed for Others",
             image: mmtcPampImg
         },
         {
+            title: "Global Heights School",
+            location: "Gurugram",
+            category: "K-12 Educational Institution",
+            desc: "Comprehensive school campus development with modern learning facilities.",
+            badge: "Executed for Others",
+            image: globalHeightsImg
+        },
+        {
+            title: "D.J. Lifestyle & Hospitality",
+            location: "Modinagar, UP",
+            category: "Hospitality & Convention Center",
+            desc: "Large-format hospitality venue designed for premium events and conventions.",
+            badge: "Executed for Others",
+            image: djLifestyleImg
+        },
+        {
             title: "BML Munjal University",
-            location: "Haryana",
-            category: "University Campus & Hostels",
+            location: "Gurugram",
+            category: "Higher Education Campus",
             desc: "Multi-block academic buildings and campus infrastructure.",
             badge: "Executed for Others",
             image: bmlMunjalImg
@@ -182,136 +175,142 @@ export default function LegacyDevelopments() {
             desc: "Executed high-density low-rise residential floors for Adani Realty.",
             badge: "Engineered In-House",
             image: adaniSamsaraImg
-        },
-        {
-            title: "Maharishi Vidya Mandir Schools",
-            location: "25+ Locations Across India",
-            category: "National Institutional Footprint",
-            desc: "Constructed over 25 school campuses nationwide between 1992 and 2001.",
-            badge: "Pan-India Legacy",
-            image: null
         }
     ];
 
     const currentProjects = activeTab === 'sys' ? sysProjects : nbProjects;
 
     return (
-        <section id="legacy-developments" className="relative bg-[#F6F4F0] py-20 md:py-32 overflow-hidden border-t border-[#8A6E4B]/15">
-            <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24">
-                {/* Header */}
+        <section id="legacy-developments" className="relative bg-[#0D0E11] py-24 md:py-36 overflow-hidden">
+            {/* Ambient Background Light */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#C9A961]/[0.025] blur-[160px] rounded-full" />
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A961]/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            </div>
+
+            <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12 lg:px-16">
+                {/* Section Header */}
                 <ScrollReveal>
-                    <div className="text-center max-w-4xl mx-auto mb-16">
-                        <span className="text-[#8A6E4B] text-xs uppercase tracking-[0.3em] font-bold block mb-4">
-                            Track Record & Portfolio
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
+                            Track Record &amp; Portfolio
                         </span>
-                        <h2 className="font-serif text-[#1C1C1C] text-4xl md:text-6xl font-light leading-[1.05] tracking-tight mb-6">
-                            Delivered <span className="text-[#8A6E4B]">Landmarks</span>
+                        <h2 className="font-serif text-white text-4xl sm:text-5xl lg:text-6xl font-light leading-tight mb-4">
+                            Delivered <span className="text-[#C9A961] italic font-serif">Landmarks</span>
                         </h2>
-                        <p className="text-[#5E5E5E] text-base md:text-xl font-light leading-relaxed">
+                        <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
                             "We built for others, long before we built for ourselves." Explore three decades of execution excellence across Group developments and third-party institutional projects.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                {/* Filter Tabs */}
+                {/* Filter Tabs — Sleek Dark Pill Toggle */}
                 <div className="flex justify-center mb-16">
-                    <div className="inline-flex bg-white p-1.5 border border-[#8A6E4B]/20 shadow-sm">
+                    <div className="inline-flex p-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
                         <button
                             onClick={() => setActiveTab('sys')}
-                            className={`flex items-center gap-2 px-6 py-3 text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
+                            className={`flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-500 ${
                                 activeTab === 'sys'
-                                    ? 'bg-[#8A6E4B] text-white shadow-md'
-                                    : 'text-[#1C1C1C]/70 hover:text-[#8A6E4B]'
+                                    ? 'bg-[#C9A961] text-black shadow-[0_0_20px_rgba(201,169,97,0.3)]'
+                                    : 'text-white/60 hover:text-white'
                             }`}
                         >
-                            <Building2 size={16} />
+                            <Building2 size={15} />
                             <span>SYS Developers Projects</span>
                         </button>
                         <button
                             onClick={() => setActiveTab('nb')}
-                            className={`flex items-center gap-2 px-6 py-3 text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
+                            className={`flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-500 ${
                                 activeTab === 'nb'
-                                    ? 'bg-[#8A6E4B] text-white shadow-md'
-                                    : 'text-[#1C1C1C]/70 hover:text-[#8A6E4B]'
+                                    ? 'bg-[#C9A961] text-black shadow-[0_0_20px_rgba(201,169,97,0.3)]'
+                                    : 'text-white/60 hover:text-white'
                             }`}
                         >
-                            <Landmark size={16} />
+                            <Landmark size={15} />
                             <span>NB Constructions (Executed for Others)</span>
                         </button>
                     </div>
                 </div>
 
-                {/* Subtitle Banner */}
+                {/* Subtitle Line */}
                 <div className="text-center mb-12">
-                    <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#8A6E4B]">
+                    <span className="text-[11px] uppercase tracking-[0.3em] font-semibold text-[#C9A961]/80">
                         {activeTab === 'sys' 
                             ? 'Bespoke Residential, Commercial & Farmland Developments' 
-                            : 'Executed for Others. Engineered In-House.'}
+                            : 'Executed for Others · Engineered In-House'}
                     </span>
                 </div>
 
-                {/* Projects Grid */}
+                {/* Projects Grid — Card-Free Full Image Gallery Tiles */}
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeTab}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                        transition={{ duration: 0.5 }}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                     >
                         {currentProjects.map((project, idx) => (
-                            <div
+                            <motion.div
                                 key={idx}
-                                className="bg-white border border-[#8A6E4B]/15 p-5 flex flex-col justify-between hover:border-[#8A6E4B] hover:shadow-xl transition-all duration-500 group"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                                className="group relative overflow-hidden rounded-xl aspect-[4/5] bg-white/5 border border-white/10 hover:border-[#C9A961]/60 transition-all duration-700 cursor-pointer"
                             >
-                                <div>
-                                    {/* Project Image Banner */}
-                                    <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded border border-[#8A6E4B]/15 bg-[#F6F4F0]">
-                                        {project.image ? (
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                onError={(e) => {
-                                                    e.currentTarget.style.display = 'none';
-                                                }}
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center bg-[#8A6E4B]/5 text-[#8A6E4B] text-xs font-serif italic">
-                                                {project.title}
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    <div className="flex justify-between items-center mb-3">
-                                        <span className="px-2.5 py-1 bg-[#F6F4F0] text-[#8A6E4B] text-[10px] font-bold uppercase tracking-wider border border-[#8A6E4B]/20">
-                                            {project.badge}
-                                        </span>
-                                        <CheckCircle2 size={16} className="text-[#8A6E4B]" />
-                                    </div>
-
-                                    <h3 className="font-serif text-xl text-[#1C1C1C] font-normal mb-1 group-hover:text-[#8A6E4B] transition-colors">
+                                {/* Full Background Image */}
+                                {project.image ? (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                        onError={(e) => {
+                                            e.currentTarget.style.display = 'none';
+                                        }}
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-white/10 to-transparent text-[#C9A961] text-sm font-serif italic p-6 text-center">
                                         {project.title}
-                                    </h3>
-                                    <span className="block text-[11px] font-medium text-[#8A6E4B] uppercase tracking-wider mb-3">
+                                    </div>
+                                )}
+
+                                {/* Gradient Overlays for Readability */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20 pointer-events-none" />
+
+                                {/* Top Badge */}
+                                <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+                                    <span className="px-3 py-1 bg-black/60 backdrop-blur-md border border-[#C9A961]/40 text-[#C9A961] text-[9px] font-bold uppercase tracking-widest rounded-full">
+                                        {project.badge}
+                                    </span>
+                                    <CheckCircle2 size={15} className="text-[#C9A961]" />
+                                </div>
+
+                                {/* Floating Content at Bottom */}
+                                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                    <span className="text-[#C9A961] text-[10px] uppercase tracking-[0.25em] font-semibold block mb-1">
                                         {project.location}
                                     </span>
-                                    <p className="text-[#5E5E5E] text-xs leading-relaxed font-light mb-4">
+
+                                    <h3 className="font-serif text-2xl text-white font-light leading-tight group-hover:text-[#C9A961] transition-colors duration-300 mb-2">
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-white/60 text-xs font-light leading-snug line-clamp-2 mb-4 group-hover:text-white/80 transition-colors">
                                         {project.desc}
                                     </p>
-                                </div>
 
-                                <div className="pt-4 border-t border-[#F6F4F0] flex justify-between items-center text-[11px] text-[#5E5E5E]/80">
-                                    <span>{project.category}</span>
-                                    <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#8A6E4B]" />
+                                    <div className="pt-3 border-t border-white/15 flex justify-between items-center text-[10px] uppercase tracking-wider text-white/50 group-hover:text-[#C9A961] transition-colors">
+                                        <span>{project.category}</span>
+                                        <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                    </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </motion.div>
                 </AnimatePresence>
-
-
             </div>
         </section>
     );
