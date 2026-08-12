@@ -6,6 +6,7 @@ import ScrollReveal from '../animations/ScrollReveal';
 import lifeCentricIcon from '../../assets/images/key_pillars/life_centric_icon.png';
 import legacyCentricIcon from '../../assets/images/key_pillars/legacy_centric_icon.png';
 import futureCentricIcon from '../../assets/images/key_pillars/future_centric_icon.png';
+import { Check } from 'lucide-react';
 
 export default function KeyPillars() {
     const pillars = [
@@ -48,76 +49,82 @@ export default function KeyPillars() {
     ];
 
     return (
-        <section id="key-pillars" className="relative bg-[#F6F4F0] py-20 md:py-32 overflow-hidden border-t border-[#8A6E4B]/15">
-            {/* Subtle background texture */}
-            <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{
-                backgroundImage: `repeating-linear-gradient(45deg, #1C1C1C 0, #1C1C1C 1px, transparent 0, transparent 50%)`,
-                backgroundSize: '20px 20px'
-            }} />
+        <section id="key-pillars" className="relative bg-[#070708] py-24 md:py-36 overflow-hidden">
+            {/* Ambient Gold Glows */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#C9A961]/[0.035] blur-[160px] rounded-full" />
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C9A961]/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            </div>
 
-            <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24">
-                {/* Header */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+                {/* Section Header */}
                 <ScrollReveal>
-                    <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
-                        <span className="inline-block text-[#8A6E4B] text-xs md:text-sm uppercase tracking-[0.4em] font-semibold mb-4">
+                    <div className="text-center max-w-3xl mx-auto mb-20">
+                        <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
                             Our Foundation
                         </span>
-                        <div className="w-24 h-[1px] bg-[#8A6E4B] mx-auto mb-6" />
-
-                        <h2 className="font-serif text-[#1C1C1C] text-4xl md:text-5xl lg:text-6xl font-light leading-[1.05] tracking-tight mb-6">
-                            Key <span className="text-[#8A6E4B]">Pillars</span>
+                        <h2 className="font-serif text-white text-4xl sm:text-5xl lg:text-6xl font-light leading-tight mb-4">
+                            Key <span className="text-[#C9A961] italic font-serif">Pillars</span>
                         </h2>
-
-                        <p className="text-[#5E5E5E] text-base md:text-lg font-light max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed max-w-xl mx-auto">
                             Three commitments — life, legacy, and future — anchor every Anantham decision.
                         </p>
+                        <div className="w-16 h-[1px] bg-[#C9A961]/40 mx-auto mt-6" />
                     </div>
                 </ScrollReveal>
 
-                {/* 3 Pillars Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {/* 3 Pillars Showcase — Box-Free Editorial Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10 items-stretch">
                     {pillars.map((pillar, idx) => (
                         <motion.div
                             key={pillar.id}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 35 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.7, delay: idx * 0.15 }}
-                            className="bg-white border border-[#8A6E4B]/20 p-8 md:p-10 flex flex-col justify-between hover:border-[#8A6E4B] hover:shadow-xl transition-all duration-500 group relative text-center items-center"
+                            transition={{ duration: 0.8, delay: idx * 0.2 }}
+                            className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl border border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent hover:border-[#C9A961]/40 hover:from-[#C9A961]/[0.05] transition-all duration-700 text-center items-center"
                         >
-                            <div className="absolute top-6 right-6">
-                                <span className="font-serif text-2xl text-[#8A6E4B]/20 group-hover:text-[#8A6E4B]/40 transition-colors">
+                            {/* Number Overlay */}
+                            <div className="absolute top-6 right-8">
+                                <span className="font-serif text-4xl text-[#C9A961]/20 group-hover:text-[#C9A961]/50 font-light transition-colors duration-500">
                                     {pillar.id}
                                 </span>
                             </div>
 
                             <div className="w-full flex flex-col items-center">
-                                {/* Standalone Gold Circular Icon (No box/container) */}
-                                <div className="w-36 h-36 md:w-44 md:h-44 mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                                {/* Floating Gold Emblem Icon with Soft Aura */}
+                                <div className="relative w-36 h-36 sm:w-40 sm:h-40 mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+                                    <div className="absolute inset-0 bg-[#C9A961]/10 rounded-full blur-2xl group-hover:bg-[#C9A961]/25 transition-all duration-700" />
                                     <img
                                         src={pillar.icon}
                                         alt={pillar.title}
-                                        className="w-full h-full object-contain"
+                                        className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(201,169,97,0.3)]"
                                     />
                                 </div>
 
-                                <span className="inline-block px-3 py-1 bg-[#F6F4F0] text-[#8A6E4B] text-[10px] uppercase tracking-widest font-bold mb-3 border border-[#8A6E4B]/15">
+                                {/* Category Badge */}
+                                <span className="inline-block px-3.5 py-1 bg-[#C9A961]/10 border border-[#C9A961]/30 text-[#C9A961] text-[10px] uppercase tracking-widest font-bold rounded-full mb-4">
                                     {pillar.badge}
                                 </span>
 
-                                <h3 className="font-serif text-2xl md:text-3xl text-[#1C1C1C] font-normal mb-2 group-hover:text-[#8A6E4B] transition-colors">
+                                {/* Title & Subtitle */}
+                                <h3 className="font-serif text-2xl sm:text-3xl text-white font-light group-hover:text-[#C9A961] transition-colors duration-300 mb-2">
                                     {pillar.title}
                                 </h3>
 
-                                <p className="text-[#5E5E5E] text-xs font-light leading-relaxed mb-6">
+                                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed mb-8 max-w-xs">
                                     {pillar.subtitle}
                                 </p>
                             </div>
 
-                            <div className="w-full space-y-2 pt-6 border-t border-[#F6F4F0] text-left">
+                            {/* Bullet Points */}
+                            <div className="w-full space-y-3 pt-6 border-t border-white/10 text-left">
                                 {pillar.points.map((point, pIdx) => (
-                                    <div key={pIdx} className="flex items-center gap-2 text-xs text-[#1C1C1C]/80 font-medium">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#8A6E4B] flex-shrink-0" />
+                                    <div key={pIdx} className="flex items-center gap-3 text-xs text-white/80 font-light">
+                                        <div className="w-4 h-4 rounded-full bg-[#C9A961]/15 border border-[#C9A961]/40 flex items-center justify-center flex-shrink-0 text-[#C9A961]">
+                                            <Check size={10} />
+                                        </div>
                                         <span>{point}</span>
                                     </div>
                                 ))}
