@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollReveal from '../animations/ScrollReveal';
-import { Building2, Landmark, ArrowUpRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { Building2, Landmark, ArrowUpRight, Sparkles } from 'lucide-react';
 
 // SYS Projects Images
 import oliveResidencyImg from '../../assets/images/projects/olive_residency.png';
@@ -77,6 +77,22 @@ export default function LegacyDevelopments() {
             desc: "High-end floor residences in one of Gurugram's established townships.",
             badge: "Luxury Living",
             image: greenwoodCityImg
+        },
+        {
+            title: "Dwarka Expressway Commercial",
+            location: "Dwarka Expressway, Gurugram",
+            category: "Commercial Development",
+            desc: "Strategic retail and office destination along the growth corridor.",
+            badge: "Commercial",
+            image: dwarkaExpCommImg
+        },
+        {
+            title: "Mannat Farm",
+            location: "Gurugram",
+            category: "Luxury Country Estate",
+            desc: "Lush green farmhouse development designed for serene weekend retreats.",
+            badge: "Estate",
+            image: mannatFarmImg
         }
     ];
 
@@ -106,6 +122,30 @@ export default function LegacyDevelopments() {
             image: mmtcPampImg
         },
         {
+            title: "Global Heights School",
+            location: "Gurugram",
+            category: "K-12 Educational Institution",
+            desc: "Comprehensive school campus development with modern learning facilities.",
+            badge: "Executed for Others",
+            image: globalHeightsImg
+        },
+        {
+            title: "D.J. Lifestyle & Hospitality",
+            location: "Modinagar, UP",
+            category: "Hospitality & Convention Center",
+            desc: "Large-format hospitality venue designed for premium events and conventions.",
+            badge: "Executed for Others",
+            image: djLifestyleImg
+        },
+        {
+            title: "BML Munjal University",
+            location: "Gurugram",
+            category: "Higher Education Campus",
+            desc: "Multi-block academic buildings and campus infrastructure.",
+            badge: "Executed for Others",
+            image: bmlMunjalImg
+        },
+        {
             title: "M3M Paragon",
             location: "Sector 57, Gurugram",
             category: "Commercial & Retail Landmark",
@@ -120,6 +160,14 @@ export default function LegacyDevelopments() {
             desc: "Luxury high-rise residential complex structural execution delivered for M3M.",
             badge: "Engineered In-House",
             image: m3mMerlinImg
+        },
+        {
+            title: "M3M Solitude",
+            location: "Sector 89, Gurugram",
+            category: "Premium Low-Rise Residences",
+            desc: "Modern boutique residential development engineered in-house.",
+            badge: "Engineered In-House",
+            image: m3mSolitudeImg
         },
         {
             title: "Adani Samsara",
@@ -142,7 +190,7 @@ export default function LegacyDevelopments() {
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+            <div className="relative z-10 max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-10">
                 {/* Section Header */}
                 <ScrollReveal>
                     <div className="text-center max-w-3xl mx-auto mb-14">
@@ -177,7 +225,7 @@ export default function LegacyDevelopments() {
                             }`}
                         >
                             <Building2 size={14} />
-                            <span>SYS Developers Projects</span>
+                            <span>SYS Developers Projects ({sysProjects.length})</span>
                         </button>
                         <button
                             onClick={() => {
@@ -191,12 +239,12 @@ export default function LegacyDevelopments() {
                             }`}
                         >
                             <Landmark size={14} />
-                            <span>NB Constructions (Executed for Others)</span>
+                            <span>NB Constructions ({nbProjects.length})</span>
                         </button>
                     </div>
                 </div>
 
-                {/* FULL-WIDTH HORIZONTAL EXPANDING ACCORDION REEL */}
+                {/* FULL-WIDTH HORIZONTAL EXPANDING ACCORDION REEL (ALL PROJECTS) */}
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeTab}
@@ -204,7 +252,7 @@ export default function LegacyDevelopments() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[520px] w-full"
+                        className="flex flex-col lg:flex-row gap-3 h-auto lg:h-[530px] w-full overflow-x-auto pb-4 custom-scrollbar"
                     >
                         {currentProjects.map((project, idx) => {
                             const isExpanded = expandedIdx === idx;
@@ -216,9 +264,9 @@ export default function LegacyDevelopments() {
                                     onMouseEnter={() => setExpandedIdx(idx)}
                                     className={`relative overflow-hidden rounded-2xl transition-all duration-700 cursor-pointer border ${
                                         isExpanded
-                                            ? 'lg:flex-[3.5] border-[#C9A961] shadow-[0_0_35px_rgba(201,169,97,0.2)] ring-1 ring-[#C9A961]/40'
-                                            : 'lg:flex-1 border-white/10 opacity-70 hover:opacity-100 hover:border-white/30'
-                                    } h-[380px] lg:h-full flex flex-col justify-between p-6 md:p-8`}
+                                            ? 'lg:flex-[4] min-w-[320px] lg:min-w-[420px] border-[#C9A961] shadow-[0_0_35px_rgba(201,169,97,0.2)] ring-1 ring-[#C9A961]/40'
+                                            : 'lg:flex-[1] min-w-[90px] border-white/10 opacity-70 hover:opacity-100 hover:border-white/30'
+                                    } h-[380px] lg:h-full flex flex-col justify-between p-5 md:p-7 flex-shrink-0 lg:flex-shrink`}
                                 >
                                     {/* Full Image Background */}
                                     <div className="absolute inset-0 z-0">
@@ -255,12 +303,12 @@ export default function LegacyDevelopments() {
                                                     {project.badge}
                                                 </span>
                                                 <span className="text-[#C9A961] text-xs font-mono font-semibold">
-                                                    0{idx + 1} / 0{currentProjects.length}
+                                                    {String(idx + 1).padStart(2, '0')} / {String(currentProjects.length).padStart(2, '0')}
                                                 </span>
                                             </div>
 
                                             {/* Bottom Details */}
-                                            <div className="pt-12">
+                                            <div className="pt-10">
                                                 <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
                                                     {project.location}
                                                 </span>
@@ -288,7 +336,7 @@ export default function LegacyDevelopments() {
                                         /* COLLAPSED STRIP VIEW */
                                         <div className="relative z-10 h-full flex flex-col justify-between">
                                             <span className="font-serif text-2xl text-[#C9A961]/40 font-light">
-                                                0{idx + 1}
+                                                {String(idx + 1).padStart(2, '0')}
                                             </span>
 
                                             {/* Vertical Project Title on Desktop */}
