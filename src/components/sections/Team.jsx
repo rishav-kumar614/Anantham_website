@@ -348,7 +348,7 @@ export default function Team() {
                         </div>
                     </ScrollReveal>
 
-                    <div className="flex flex-wrap gap-10">
+                    <div className="flex w-full justify-around items-center">
                         {businessPartners.map((partner, idx) => (
                             <motion.div
                                 key={idx}
