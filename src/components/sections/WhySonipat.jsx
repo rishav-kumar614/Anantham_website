@@ -75,7 +75,7 @@ function EnginesPanel({ economicEngines }) {
                 </div>
 
                 {/* Right: Animated Content Reveal Panel */}
-                <div className="flex-1 lg:pl-16 pt-10 lg:pt-0 flex items-start overflow-hidden">
+                <div className="flex-1 lg:pl-16 pt-10 lg:pt-8 flex items-start overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeEngine}
@@ -285,54 +285,60 @@ export default function WhySonipat() {
                 {/* 3 Economic Engines — Interactive Tab Selector */}
                 <EnginesPanel economicEngines={economicEngines} />
 
-                {/* Seamless Access & Travel Times — Sleek Dark Layout */}
+                {/* Seamless Access — Open Departure-Board Layout */}
+                <div className="mb-28">
+                    {/* Header */}
+                    <div className="mb-12">
+                        <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
+                            Seamless Access
+                        </span>
+                        <h3 className="font-serif text-4xl sm:text-5xl text-white font-light">
+                            Everything Connects Here.
+                        </h3>
+                    </div>
 
-                <div className="p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/10 mb-28 backdrop-blur-md">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
-                                Seamless Access
-                            </span>
-                            <h3 className="font-serif text-3xl sm:text-4xl text-white font-light mb-3">
-                                Everything Connects Here.
-                            </h3>
-                            <p className="text-white/60 text-xs font-light mb-6">
-                                NH-44, KMP, KGP, UER-II, Metro &amp; RRTS — everything connects here.
-                            </p>
-                            <div className="space-y-3">
-                                {travelTimes.map((t, idx) => (
-                                    <div key={idx} className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#C9A961]/40 transition-colors">
-                                        <div className="flex items-center gap-3">
-                                            <MapPin size={15} className="text-[#C9A961]" />
-                                            <span className="text-xs font-medium text-white">{t.destination}</span>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-[11px] text-white/50">{t.distance}</span>
-                                            <span className="px-2.5 py-0.5 bg-[#C9A961] text-black text-[10px] font-bold rounded-full">{t.duration}</span>
-                                        </div>
-                                    </div>
-                                ))}
+                    {/* Travel Time Metrics — 4 Open Columns like a departure board */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10 mb-14">
+                        {travelTimes.map((t, idx) => (
+                            <div
+                                key={idx}
+                                className="group pt-8 pb-8 pr-8 border-r last:border-r-0 border-white/10 hover:bg-[#C9A961]/[0.03] transition-colors duration-300"
+                            >
+                                <span className="font-serif text-4xl sm:text-5xl text-[#C9A961] font-light block mb-2 leading-none">
+                                    {t.duration}
+                                </span>
+                                <span className="block text-white text-sm font-medium tracking-wide mb-1">
+                                    {t.destination}
+                                </span>
+                                <span className="block text-white/40 text-xs font-light">
+                                    {t.distance}
+                                </span>
                             </div>
-                        </div>
+                        ))}
+                    </div>
 
-                        <div className="space-y-8 lg:border-l lg:border-white/10 lg:pl-10">
-                            {connectivityGrid.map((group, idx) => (
-                                <div key={idx}>
-                                    <h4 className="text-[11px] uppercase tracking-[0.3em] font-semibold text-[#C9A961] mb-4">
-                                        {group.category}
-                                    </h4>
-                                    <div className="flex flex-wrap gap-2.5">
-                                        {group.routes.map((route, rIdx) => (
-                                            <span key={rIdx} className="px-3.5 py-2 bg-white/5 border border-white/10 text-xs font-medium text-white/90 rounded-lg hover:border-[#C9A961]/50 hover:text-[#C9A961] transition-colors">
-                                                {route.code}
-                                            </span>
-                                        ))}
-                                    </div>
+                    {/* Route Pills — Flowing horizontal ribbon, no box */}
+                    <div className="space-y-6">
+                        {connectivityGrid.map((group, idx) => (
+                            <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-4">
+                                <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#C9A961] w-40 flex-shrink-0">
+                                    {group.category}
+                                </span>
+                                <div className="flex flex-wrap gap-2.5">
+                                    {group.routes.map((route, rIdx) => (
+                                        <span
+                                            key={rIdx}
+                                            className="px-4 py-2 text-xs font-medium text-white/80 rounded-full border border-white/10 hover:border-[#C9A961]/50 hover:text-[#C9A961] transition-all duration-300"
+                                        >
+                                            {route.code}
+                                        </span>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
+
 
                 {/* 6 Location Advantage Buckets */}
                 <div className="mb-28">
