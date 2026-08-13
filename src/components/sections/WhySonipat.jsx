@@ -182,64 +182,64 @@ export default function WhySonipat() {
 
 
 
-                {/* 3 Economic Engines Section — Box-Free Glass Columns */}
+                {/* 3 Economic Engines — Full-Width Editorial Numbered Strips */}
                 <div className="mb-28">
                     <ScrollReveal>
-                        <div className="mb-12 text-center">
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.3em] font-semibold block mb-2">
+                        <div className="mb-16">
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
                                 Economic Foundation
                             </span>
-                            <h3 className="font-serif text-3xl sm:text-4xl text-white font-light">
-                                Three Engines · <span className="text-[#C9A961] italic font-serif">One City</span>
+                            <h3 className="font-serif text-4xl sm:text-5xl text-white font-light">
+                                Three Engines · <span className="text-[#C9A961] italic">One City</span>
                             </h3>
                         </div>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="space-y-0">
                         {economicEngines.map((engine, idx) => (
                             <motion.div
                                 key={engine.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.7, delay: idx * 0.15 }}
-                                className="group relative flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent hover:border-[#C9A961]/40 hover:from-[#C9A961]/[0.05] transition-all duration-700"
+                                className="group relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 py-10 border-b border-white/[0.07] hover:border-[#C9A961]/30 transition-colors duration-500"
                             >
-                                <div className="absolute top-6 right-8">
-                                    <span className="font-serif text-3xl text-[#C9A961]/25 group-hover:text-[#C9A961]/60 transition-colors font-light">
+                                {/* Large Gold Number */}
+                                <div className="flex-shrink-0 w-24 text-right hidden md:block">
+                                    <span className="font-serif text-6xl lg:text-7xl text-[#C9A961]/15 group-hover:text-[#C9A961]/40 transition-colors duration-500 font-light leading-none select-none">
                                         {engine.id}
                                     </span>
                                 </div>
 
-                                <div>
-                                    <div className="w-12 h-12 rounded-xl bg-[#C9A961]/10 border border-[#C9A961]/30 flex items-center justify-center mb-6 text-[#C9A961] group-hover:bg-[#C9A961] group-hover:text-black transition-colors duration-500">
-                                        <engine.icon size={22} />
+                                {/* Gold accent line */}
+                                <div className="hidden md:block w-px self-stretch bg-white/10 group-hover:bg-[#C9A961]/40 transition-colors duration-500" />
+
+                                {/* Icon + Title + Desc */}
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-4 mb-3">
+                                        <div className="w-10 h-10 rounded-lg bg-[#C9A961]/10 border border-[#C9A961]/20 flex items-center justify-center text-[#C9A961] group-hover:bg-[#C9A961] group-hover:text-black transition-all duration-500 flex-shrink-0">
+                                            <engine.icon size={18} />
+                                        </div>
+                                        <h4 className="font-serif text-2xl sm:text-3xl text-white font-light group-hover:text-[#C9A961] transition-colors duration-400">
+                                            {engine.title}
+                                        </h4>
                                     </div>
-
-                                    <span className="inline-block px-3 py-1 bg-[#C9A961]/10 border border-[#C9A961]/30 text-[#C9A961] text-[10px] uppercase tracking-widest font-bold rounded-full mb-3">
-                                        {engine.badge}
-                                    </span>
-
-                                    <h4 className="font-serif text-2xl text-white mb-3 font-light group-hover:text-[#C9A961] transition-colors">
-                                        {engine.title}
-                                    </h4>
-
-                                    <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                                    <p className="text-white/55 text-sm leading-relaxed font-light max-w-md">
                                         {engine.description}
                                     </p>
                                 </div>
 
-                                <div className="pt-6 border-t border-white/10">
-                                    <ul className="space-y-2.5">
-                                        {engine.highlights.map((item, i) => (
-                                            <li key={i} className="flex items-center gap-2.5 text-xs text-white/80 font-light">
-                                                <div className="w-3.5 h-3.5 rounded-full bg-[#C9A961]/15 border border-[#C9A961]/40 flex items-center justify-center text-[#C9A961] flex-shrink-0">
-                                                    <Check size={9} />
-                                                </div>
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                {/* Highlights as inline pills on the far right */}
+                                <div className="flex-shrink-0 flex flex-wrap md:flex-col gap-2 md:items-end">
+                                    {engine.highlights.map((item, i) => (
+                                        <span
+                                            key={i}
+                                            className="text-[11px] text-white/70 font-light tracking-wide border-b border-white/20 pb-0.5 group-hover:text-[#C9A961] group-hover:border-[#C9A961]/40 transition-colors duration-300"
+                                        >
+                                            {item}
+                                        </span>
+                                    ))}
                                 </div>
                             </motion.div>
                         ))}
