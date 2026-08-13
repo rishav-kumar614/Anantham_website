@@ -328,7 +328,7 @@ export default function WhySonipat() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                    className="group pt-8 pb-8 pr-6 border-b border-r border-white/[0.07] last:border-r-0 [&:nth-child(2)]:border-r-0 [&:nth-child(3)]:border-b-0 [&:nth-child(4)]:border-b-0 hover:bg-[#C9A961]/[0.03] transition-colors duration-300"
+                                    className="group p-8 border-b border-r border-white/[0.07] [&:nth-child(2)]:border-r-0 [&:nth-child(3)]:border-b-0 [&:nth-child(4)]:border-b-0 hover:bg-[#C9A961]/[0.03] transition-colors duration-300"
                                 >
                                     <span className="font-serif text-4xl sm:text-5xl text-[#C9A961] font-light block mb-2 leading-none group-hover:scale-105 transition-transform duration-300 origin-left">
                                         {t.duration}
