@@ -75,7 +75,7 @@ function EnginesPanel({ economicEngines }) {
                 </div>
 
                 {/* Right: Animated Content Reveal Panel */}
-                <div className="flex-1 lg:pl-16 pt-10 lg:pt-8 flex items-start overflow-hidden">
+                <div className="flex-1 lg:pl-16 pt-10 lg:pt-0 flex items-start overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeEngine}
