@@ -285,59 +285,67 @@ export default function WhySonipat() {
                 {/* 3 Economic Engines — Interactive Tab Selector */}
                 <EnginesPanel economicEngines={economicEngines} />
 
-                {/* Seamless Access — Open Departure-Board Layout */}
+                {/* Seamless Access — Two-Column Editorial Split */}
                 <div className="mb-28">
-                    {/* Header */}
-                    <div className="mb-12">
-                        <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
-                            Seamless Access
-                        </span>
-                        <h3 className="font-serif text-4xl sm:text-5xl text-white font-light">
-                            Everything Connects Here.
-                        </h3>
-                    </div>
+                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
 
-                    {/* Travel Time Metrics — 4 Open Columns like a departure board */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10 mb-14">
-                        {travelTimes.map((t, idx) => (
-                            <div
-                                key={idx}
-                                className="group pt-8 pb-8 pr-8 border-r last:border-r-0 border-white/10 hover:bg-[#C9A961]/[0.03] transition-colors duration-300"
-                            >
-                                <span className="font-serif text-4xl sm:text-5xl text-[#C9A961] font-light block mb-2 leading-none">
-                                    {t.duration}
-                                </span>
-                                <span className="block text-white text-sm font-medium tracking-wide mb-1">
-                                    {t.destination}
-                                </span>
-                                <span className="block text-white/40 text-xs font-light">
-                                    {t.distance}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
+                        {/* Left: Header + Route Network */}
+                        <div className="lg:w-[380px] flex-shrink-0">
+                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
+                                Seamless Access
+                            </span>
+                            <h3 className="font-serif text-4xl sm:text-5xl text-white font-light mb-8 leading-tight">
+                                Everything<br />Connects Here.
+                            </h3>
 
-                    {/* Route Pills — Flowing horizontal ribbon, no box */}
-                    <div className="space-y-6">
-                        {connectivityGrid.map((group, idx) => (
-                            <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-4">
-                                <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#C9A961] w-40 flex-shrink-0">
-                                    {group.category}
-                                </span>
-                                <div className="flex flex-wrap gap-2.5">
-                                    {group.routes.map((route, rIdx) => (
-                                        <span
-                                            key={rIdx}
-                                            className="px-4 py-2 text-xs font-medium text-white/80 rounded-full border border-white/10 hover:border-[#C9A961]/50 hover:text-[#C9A961] transition-all duration-300"
-                                        >
-                                            {route.code}
+                            <div className="space-y-5 border-t border-white/10 pt-8">
+                                {connectivityGrid.map((group, idx) => (
+                                    <div key={idx}>
+                                        <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#C9A961] block mb-2.5">
+                                            {group.category}
                                         </span>
-                                    ))}
-                                </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {group.routes.map((route, rIdx) => (
+                                                <span
+                                                    key={rIdx}
+                                                    className="px-3.5 py-1.5 text-[11px] font-medium text-white/75 rounded-full border border-white/10 hover:border-[#C9A961]/50 hover:text-[#C9A961] transition-all duration-300"
+                                                >
+                                                    {route.code}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+
+                        {/* Right: 4 Travel Metric Tiles in 2×2 Grid */}
+                        <div className="flex-1 grid grid-cols-2 gap-0 border-t border-white/10">
+                            {travelTimes.map((t, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                    className="group pt-8 pb-8 pr-6 border-b border-r border-white/[0.07] last:border-r-0 [&:nth-child(2)]:border-r-0 [&:nth-child(3)]:border-b-0 [&:nth-child(4)]:border-b-0 hover:bg-[#C9A961]/[0.03] transition-colors duration-300"
+                                >
+                                    <span className="font-serif text-4xl sm:text-5xl text-[#C9A961] font-light block mb-2 leading-none group-hover:scale-105 transition-transform duration-300 origin-left">
+                                        {t.duration}
+                                    </span>
+                                    <span className="block text-white text-sm font-medium mb-1">
+                                        {t.destination}
+                                    </span>
+                                    <span className="block text-white/40 text-xs font-light">
+                                        {t.distance}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
+
                     </div>
                 </div>
+
 
 
                 {/* 6 Location Advantage Buckets */}
