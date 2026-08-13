@@ -1,5 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
 import ScrollReveal from '../animations/ScrollReveal';
 import demandShiftVisual from '../../assets/images/projects/demand_shift_family.png';
 import sonipatGrowthHero from '../../assets/images/projects/sonipat_growth_hero.png';
@@ -19,7 +20,105 @@ import {
 } from 'lucide-react';
 
 
+
+function EnginesPanel({ economicEngines }) {
+    const [activeEngine, setActiveEngine] = useState(0);
+    const active = economicEngines[activeEngine];
+
+    return (
+        <div className="mb-28">
+            <div className="mb-14">
+                <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
+                    Economic Foundation
+                </span>
+                <h3 className="font-serif text-4xl sm:text-5xl text-white font-light">
+                    Three Engines · <span className="text-[#C9A961] italic">One City</span>
+                </h3>
+            </div>
+
+            <div className="flex flex-col lg:flex-row gap-0 min-h-[400px]">
+                {/* Left: Stacked Selector Tabs */}
+                <div className="flex lg:flex-col gap-0 lg:w-[300px] flex-shrink-0 border-b lg:border-b-0 lg:border-r border-white/10">
+                    {economicEngines.map((engine, idx) => (
+                        <button
+                            key={engine.id}
+                            onClick={() => setActiveEngine(idx)}
+                            className={`group flex items-center gap-5 px-6 py-8 text-left transition-all duration-300 border-b border-white/[0.06] last:border-b-0 relative overflow-hidden ${
+                                activeEngine === idx ? 'bg-[#C9A961]/[0.05]' : 'hover:bg-white/[0.02]'
+                            }`}
+                        >
+                            {/* Active gold left bar */}
+                            <div className={`absolute left-0 top-0 bottom-0 w-[3px] transition-all duration-400 ${
+                                activeEngine === idx ? 'bg-[#C9A961]' : 'bg-transparent'
+                            }`} />
+
+                            <span className={`font-serif text-3xl font-light transition-colors duration-300 w-10 text-right flex-shrink-0 ${
+                                activeEngine === idx ? 'text-[#C9A961]' : 'text-white/20'
+                            }`}>
+                                {engine.id}
+                            </span>
+
+                            <div>
+                                <span className={`block text-[10px] uppercase tracking-[0.25em] font-semibold mb-1 transition-colors duration-300 ${
+                                    activeEngine === idx ? 'text-[#C9A961]' : 'text-white/35'
+                                }`}>
+                                    {engine.badge}
+                                </span>
+                                <span className={`block font-serif text-xl font-light transition-colors duration-300 ${
+                                    activeEngine === idx ? 'text-white' : 'text-white/45'
+                                }`}>
+                                    {engine.title}
+                                </span>
+                            </div>
+                        </button>
+                    ))}
+                </div>
+
+                {/* Right: Animated Content Reveal Panel */}
+                <div className="flex-1 lg:pl-16 pt-10 lg:pt-0 flex items-center overflow-hidden">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeEngine}
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -24 }}
+                            transition={{ duration: 0.4, ease: 'easeOut' }}
+                            className="w-full"
+                        >
+                            {/* Icon */}
+                            <div className="w-16 h-16 rounded-2xl bg-[#C9A961]/10 border border-[#C9A961]/20 flex items-center justify-center text-[#C9A961] mb-6">
+                                <active.icon size={26} />
+                            </div>
+
+                            {/* Title */}
+                            <h4 className="font-serif text-4xl sm:text-5xl text-white font-light leading-tight mb-5">
+                                {active.title}
+                            </h4>
+
+                            {/* Description */}
+                            <p className="text-white/60 text-base font-light leading-relaxed max-w-lg mb-10">
+                                {active.description}
+                            </p>
+
+                            {/* Highlights inline */}
+                            <div className="flex flex-wrap gap-x-10 gap-y-3">
+                                {active.highlights.map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2.5">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#C9A961] flex-shrink-0" />
+                                        <span className="text-sm text-white/75 font-light">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function WhySonipat() {
+
     const macroStats = [
         { label: "Population", value: "15 Lakh+", subtext: "Fast-growing urban market", icon: Users },
         { label: "National Highways", value: "6", subtext: "Unmatched NCR connectivity", icon: Navigation },
@@ -182,71 +281,12 @@ export default function WhySonipat() {
 
 
 
-                {/* 3 Economic Engines — Full-Width Editorial Numbered Strips */}
-                <div className="mb-28">
-                    <ScrollReveal>
-                        <div className="mb-16">
-                            <span className="text-[#C9A961] text-xs uppercase tracking-[0.4em] font-semibold block mb-3">
-                                Economic Foundation
-                            </span>
-                            <h3 className="font-serif text-4xl sm:text-5xl text-white font-light">
-                                Three Engines · <span className="text-[#C9A961] italic">One City</span>
-                            </h3>
-                        </div>
-                    </ScrollReveal>
 
-                    <div className="space-y-0">
-                        {economicEngines.map((engine, idx) => (
-                            <motion.div
-                                key={engine.id}
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.7, delay: idx * 0.15 }}
-                                className="group relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 py-10 border-b border-white/[0.07] hover:border-[#C9A961]/30 transition-colors duration-500"
-                            >
-                                {/* Large Gold Number */}
-                                <div className="flex-shrink-0 w-24 text-right hidden md:block">
-                                    <span className="font-serif text-6xl lg:text-7xl text-[#C9A961]/15 group-hover:text-[#C9A961]/40 transition-colors duration-500 font-light leading-none select-none">
-                                        {engine.id}
-                                    </span>
-                                </div>
-
-                                {/* Gold accent line */}
-                                <div className="hidden md:block w-px self-stretch bg-white/10 group-hover:bg-[#C9A961]/40 transition-colors duration-500" />
-
-                                {/* Icon + Title + Desc */}
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-4 mb-3">
-                                        <div className="w-10 h-10 rounded-lg bg-[#C9A961]/10 border border-[#C9A961]/20 flex items-center justify-center text-[#C9A961] group-hover:bg-[#C9A961] group-hover:text-black transition-all duration-500 flex-shrink-0">
-                                            <engine.icon size={18} />
-                                        </div>
-                                        <h4 className="font-serif text-2xl sm:text-3xl text-white font-light group-hover:text-[#C9A961] transition-colors duration-400">
-                                            {engine.title}
-                                        </h4>
-                                    </div>
-                                    <p className="text-white/55 text-sm leading-relaxed font-light max-w-md">
-                                        {engine.description}
-                                    </p>
-                                </div>
-
-                                {/* Highlights as inline pills on the far right */}
-                                <div className="flex-shrink-0 flex flex-wrap md:flex-col gap-2 md:items-end">
-                                    {engine.highlights.map((item, i) => (
-                                        <span
-                                            key={i}
-                                            className="text-[11px] text-white/70 font-light tracking-wide border-b border-white/20 pb-0.5 group-hover:text-[#C9A961] group-hover:border-[#C9A961]/40 transition-colors duration-300"
-                                        >
-                                            {item}
-                                        </span>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+                {/* 3 Economic Engines — Interactive Tab Selector */}
+                <EnginesPanel economicEngines={economicEngines} />
 
                 {/* Seamless Access & Travel Times — Sleek Dark Layout */}
+
                 <div className="p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/10 mb-28 backdrop-blur-md">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
